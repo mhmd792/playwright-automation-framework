@@ -12,6 +12,6 @@ class inventory_page:
         expect(self.cart_badge).to_have_text("1",timeout=3000)
 
 
-    def add_object(self,name:srting):
-        self.add_backpack_button.click()
-        add_object=self.page.locator(f"#add-to-cart-{name}")
+    def add_object(self, name: str):
+        add_object = self.page.locator(f"#add-to-cart-{name}")
+        add_object.click()
