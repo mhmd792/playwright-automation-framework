@@ -14,8 +14,12 @@ def test_test_assertions(page):
     expect(error_message).not_to_be_visible()
 
 
-page.locator("#password").fill("secret_food")
-page.locator("#user-name").fill("555")
+def test_invalid_login_shows_error(page):
+    page.goto("https://www.saucedemo.com/")
+    page.locator("#password").fill("secret_food")
+    page.locator("#user-name").fill("555")
 
-login_button = page.locator("#login-button")
-login_button.click()
+    login_button = page.locator("#login-button")
+    login_button.click()
+
+    expect(page.locator("[data-test='error']")).to_be_visible()
