@@ -14,7 +14,12 @@ class LoginPage:
         self.page.goto("https://www.saucedemo.com/")
         expect(self.login_button).to_be_visible(timeout=5000)
 
+
+
     def login(self, username, password):
         self.username_input.fill(username)
         self.password_input.fill(password)
         self.login_button.click()
+
+
+
