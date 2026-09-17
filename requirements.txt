@@ -3,3 +3,5 @@ pytest-playwright
 playwright
 requests
 deepeval
+python-dotenv>=1.0,<2.0
+selenium>=4.0,<5.0

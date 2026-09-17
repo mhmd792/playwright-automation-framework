@@ -28,7 +28,7 @@ jobs:
       - name: Install Playwright Browsers
         run: playwright install --with-deps chromium
 
-      - name: Run Pytest Matrix (UI, API, AI)
+      - name: Run stable pytest suite
         env:
           # Injecting the GitHub Secret securely into the runner environment
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

@@ -19,11 +19,40 @@ example using the public SauceDemo test account).
 
 ## Running tests
 
-Each lesson folder is independent, so run pytest from inside it:
+The repository root now exposes the same stable suite that CI runs:
+
+```bash
+pytest -v
+```
+
+That default command intentionally covers a small stable regression suite:
+
+- `lesson6/test_reqres_api.py`
+- `lesson10/test_e2e_purchaec.py`
+- `lesson12/pages/test_side_menu.py`
+
+Each lesson folder is still independent, so you can also run pytest from inside a specific lesson:
 
 ```bash
 cd lesson10
 pytest
+```
+
+### Optional local-only lessons
+
+Some learning exercises need local infrastructure or manual interaction, so they are not part of the default CI suite:
+
+- `lesson13/test_local_ai.py`
+- `lesson 14/tests/test_rag_basic.py`
+- interactive/browser-learning files under `lesson8/` and `lesson9/`
+
+To run a local AI lesson, start Ollama first, then opt in explicitly:
+
+```bash
+export RUN_LOCAL_AI_TESTS=1
+export OLLAMA_BASE_URL=http://localhost:11434
+export OLLAMA_MODEL=llama3.1
+pytest lesson13/test_local_ai.py -v
 ```
 
 ## Folder guide
@@ -39,7 +68,7 @@ pytest
 | `lesson10/` | Page Object Model with Playwright + pytest fixtures (login, inventory, checkout). |
 | `lesson11/` | POM continued: `.env`-based config, fixtures, checkout page object. |
 | `training.py`, `test_car.py` | Small pytest fixture/parametrize exercises. |
-| `trace.zip` | Sample Playwright trace, viewable with `playwright show-trace trace.zip`. |
+| `trace.zip` | Generated locally when you record a Playwright trace; ignored by git. |
 
 ## Notes
 

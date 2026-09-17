@@ -1,13 +1,9 @@
-import pytest
-from playwright.sync_api import expect, sync_playwright
+def test_favorite_choices_are_supported():
+    games = ["gta", "fifa", "call_of_duty", "minecraft", "fortnite"]
+    consoles = ["xbox", "playstation", "nintendo", "pc"]
 
-games = [ "gta", "fifa", "call_of_duty", "minecraft", "fortnite"]
-consoles = ["xbox", "playstation", "nintendo", "pc"]
+    favorite_game = "fifa"
+    favorite_console = "xbox"
 
-print(input("Enter your favorite game: "))
-print(input("Enter your favorite console: "))
-if input("Enter your favorite game: ") in games and input("Enter your favorite console: ") in consoles:
-    print("You have good taste in games and consoles!")
-
-    
-    
+    assert favorite_game in games
+    assert favorite_console in consoles
